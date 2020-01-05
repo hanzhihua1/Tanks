@@ -10,6 +10,7 @@ func start(pos, dir):
 	rotation = dir
 	position = pos
 	velocity = Vector2(speed, 0).rotated(rotation)
+	
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
@@ -19,6 +20,8 @@ func _physics_process(delta):
 			queue_free()
 		else:
 			velocity = velocity.bounce(collision.normal)
+			rotation = velocity.angle()
+			
 			
 func hit():
 	var e = Explosion.instance()
