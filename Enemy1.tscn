@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Enemy1.gd" type="Script" id=1]
 [ext_resource path="res://PNG/Retina/tankBody_dark_outline.png" type="Texture" id=2]
 [ext_resource path="res://PNG/Retina/tankDark_barrel2_outline.png" type="Texture" id=3]
 
