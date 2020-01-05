@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Crate.tscn" type="PackedScene" id=2]
+
+[node name="World" type="TileMap"]
+cell_size = Vector2( 42, 42 )
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 20, 20 )
+
+[node name="Crate" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, 20 )
+
+[node name="Crate2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 90, 20 )
+
+[node name="Crate3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 230, 20 )
+
+[node name="Crate8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 304, 20 )
+
+[node name="Crate9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 380, 20 )
+
+[node name="Crate11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 460, 20 )
