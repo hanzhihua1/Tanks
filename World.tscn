@@ -60,3 +60,21 @@ position = Vector2( 544, 352 )
 
 [node name="Crate3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 544, 224 )
+
+[node name="Crate5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 96, 32 )
+
+[node name="Crate6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, 32 )
+
+[node name="Crate7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 224, 32 )
+
+[node name="Crate8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 288, 32 )
+
+[node name="Crate9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 352, 32 )
+
+[node name="Crate4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 32, 32 )

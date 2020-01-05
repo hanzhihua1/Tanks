@@ -3,6 +3,7 @@ extends KinematicBody2D
 var speed = 350
 var velocity = Vector2()
 var Explosion = preload("res://Explode2.tscn")
+var num_bounce = 1
 
 # Called when the node enters the scene tree for the first time.
 
@@ -18,9 +19,12 @@ func _physics_process(delta):
 		if collision.collider.has_method("hit"):
 			collision.collider.hit()
 			queue_free()
-		else:
+		elif num_bounce > 0:
 			velocity = velocity.bounce(collision.normal)
 			rotation = velocity.angle()
+			num_bounce -= 1
+		else: 
+			hit()
 			
 			
 func hit():

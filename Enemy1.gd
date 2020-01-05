@@ -11,6 +11,7 @@ var Explosion = preload("res://Explode.tscn")
 var shootdelay = 800
 var time = OS.get_ticks_msec() + shootdelay
 
+
 func get_input():
 	$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
 	velocity = Vector2()
