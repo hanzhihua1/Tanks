@@ -10,7 +10,7 @@ var Explosion = preload("res://Explode.tscn")
 
 var shootdelay = 800
 var time = OS.get_ticks_msec() + shootdelay
-var nav_time = OS.get_ticks_msec() + 1000
+var nav_time = OS.get_ticks_msec() + 500
 
 var path = PoolVector2Array() setget set_path
 
@@ -24,13 +24,15 @@ func get_input():
 		$RayCast2D.rotation = $Sprite2.rotation
 		
 		if time < OS.get_ticks_msec():
-			#shoot()
+			shoot()
 			time = OS.get_ticks_msec() + shootdelay
 		if nav_time < OS.get_ticks_msec():
-			velocity += Vector2(rand_range(-1, 1), rand_range(-1, 1))
-		
+			nav_time = OS.get_ticks_msec() + 500
+			velocity = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()*speed
+			print(velocity)
 	else:
 		velocity = Vector2(0, 0)
+	print(velocity, 'get')
 
 func _physics_process(delta):
 	get_input()

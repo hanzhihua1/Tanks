@@ -4,9 +4,9 @@
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://new_tileset2.tres" type="TileSet" id=3]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Enemy1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Crate.tscn" type="PackedScene" id=6]
-[ext_resource path="res://MetalCrate.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Crate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://MetalCrate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemy2.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,33 +26,33 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="Player" parent="World1/Navigation2D/Tileset" instance=ExtResource( 4 )]
 position = Vector2( 64, 320 )
 
-[node name="Enemy1" parent="World1/Navigation2D/Tileset" instance=ExtResource( 5 )]
-position = Vector2( 864, 544 )
-
-[node name="Crate" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
+[node name="Crate" parent="World1/Navigation2D/Tileset" instance=ExtResource( 5 )]
 position = Vector2( 544, 288.08 )
 
-[node name="Crate2" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
+[node name="Crate2" parent="World1/Navigation2D/Tileset" instance=ExtResource( 5 )]
 position = Vector2( 544, 352 )
 
-[node name="Crate3" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate3" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 608, 320.08 )
 
-[node name="Crate5" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate5" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 96, 32 )
 
-[node name="Crate6" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate6" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 160, 32 )
 
-[node name="Crate7" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate7" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 224, 32 )
 
-[node name="Crate8" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate8" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 288, 32 )
 
-[node name="Crate9" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate9" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 352, 32 )
 
-[node name="Crate4" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+[node name="Crate4" parent="World1/Navigation2D/Tileset" instance=ExtResource( 6 )]
 position = Vector2( 32, 32 )
+
+[node name="Enemy2" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+position = Vector2( 864, 480 )
 [connection signal="dead" from="World1/Navigation2D/Tileset/Player" to="." method="_on_Player_dead"]
