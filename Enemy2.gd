@@ -27,7 +27,8 @@ func get_input():
 			#shoot()
 			time = OS.get_ticks_msec() + shootdelay
 		if nav_time < OS.get_ticks_msec():
-			set_path(get_parent().get_parent().get_parent().find_path_to_player(position, Player.position))
+			velocity += Vector2(rand_range(-1, 1), rand_range(-1, 1))
+		
 	else:
 		velocity = Vector2(0, 0)
 
