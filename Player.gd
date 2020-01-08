@@ -5,6 +5,7 @@ export (int) var speed = 200
 var velocity = Vector2()
 var Bullet = preload("res://Bullet.tscn")
 var Explosion = preload("res://Explode.tscn")
+signal dead
 
 func get_input():
 	$Sprite2.rotation = get_global_mouse_position().angle_to_point(position) - PI/2
@@ -35,4 +36,5 @@ func hit():
 	var e = Explosion.instance()
 	e.start(position)
 	get_parent().add_child(e)
+	emit_signal("dead")
 	queue_free()

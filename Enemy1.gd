@@ -11,24 +11,26 @@ var Explosion = preload("res://Explode.tscn")
 var shootdelay = 800
 var time = OS.get_ticks_msec() + shootdelay
 
-
 func get_input():
-	$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
-	velocity = Vector2()
-	if Player.position.x > position.x - 300:
-	    velocity.x += 1
-	if Player.position.x < position.x + 300:
-	    velocity.x -= 1
-	if Player.position.y > position.y - 300:
-	    velocity.y += 1
-	if Player.position.y < position.y + 300:
-	    velocity.y -= 1
-	velocity = velocity.normalized() * speed
-	$Sprite.rotation = velocity.normalized().angle() - PI/2
-	
-	if time < OS.get_ticks_msec():
-		shoot()
-		time = OS.get_ticks_msec() + shootdelay
+	if get_parent().has_node("Player"):
+		$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
+		velocity = Vector2()
+		if Player.position.x > position.x - 300:
+		    velocity.x += 1
+		if Player.position.x < position.x + 300:
+		    velocity.x -= 1
+		if Player.position.y > position.y - 300:
+		    velocity.y += 1
+		if Player.position.y < position.y + 300:
+		    velocity.y -= 1
+		velocity = velocity.normalized() * speed
+		$Sprite.rotation = velocity.normalized().angle() - PI/2
+		
+		if time < OS.get_ticks_msec():
+			shoot()
+			time = OS.get_ticks_msec() + shootdelay
+	else:
+		velocity = Vector2(0, 0)
 
 func _physics_process(delta):
     get_input()
