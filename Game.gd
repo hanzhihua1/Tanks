@@ -14,7 +14,6 @@ func _ready():
 #	pass
 
 func _on_Player_dead():
-	var dead = true
 	if lives > 0:
 		lives -= 1
 		

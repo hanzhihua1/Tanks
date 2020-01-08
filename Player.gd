@@ -5,6 +5,8 @@ export (int) var speed = 200
 var velocity = Vector2()
 var Bullet = preload("res://Bullet.tscn")
 var Explosion = preload("res://Explode.tscn")
+var MAX_BULLETS = 5
+
 signal dead
 
 func get_input():
@@ -21,7 +23,10 @@ func get_input():
 	velocity = velocity.normalized() * speed
 	$Sprite.rotation = velocity.normalized().angle() - PI/2
 	if Input.is_action_just_pressed("click"):
-		shoot()
+		var all_bullets = get_tree().get_nodes_in_group("bullets")
+		print(all_bullets)
+		if len(all_bullets) < MAX_BULLETS:
+			shoot()
 
 func _physics_process(delta):
     get_input()
@@ -29,6 +34,7 @@ func _physics_process(delta):
 
 func shoot():
 	var b = Bullet.instance()
+	b.add_to_group('bullets')
 	b.start($Sprite2.global_position + Vector2(40, 0).rotated($Sprite2.rotation + PI/2), $Sprite2.rotation + PI/2)
 	get_parent().add_child(b)
 	
