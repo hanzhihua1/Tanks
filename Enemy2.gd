@@ -29,10 +29,8 @@ func get_input():
 		if nav_time < OS.get_ticks_msec():
 			nav_time = OS.get_ticks_msec() + 500
 			velocity = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()*speed
-			print(velocity)
 	else:
 		velocity = Vector2(0, 0)
-	print(velocity, 'get')
 
 func _physics_process(delta):
 	get_input()
@@ -40,8 +38,9 @@ func _physics_process(delta):
 
 func shoot():
 	if $RayCast2D.get_collider() == Player:
+		#Add some variance	
 		var b = Bullet.instance()
-		b.start($Sprite2.global_position + Vector2(40, 0).rotated($Sprite2.rotation + PI/2), $Sprite2.rotation + PI/2)
+		b.start($Sprite2.global_position + Vector2(40, 0).rotated($Sprite2.rotation + PI/2), $Sprite2.rotation + PI/2 + rand_range(-0.1, 0.1))
 		get_parent().add_child(b)
 	
 func hit():
