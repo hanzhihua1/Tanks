@@ -63,7 +63,7 @@ position = Vector2( 544, 288.08 )
 position = Vector2( 544, 352 )
 
 [node name="Crate3" parent="World" instance=ExtResource( 6 )]
-position = Vector2( 544, 224 )
+position = Vector2( 608, 320.08 )
 
 [node name="Crate5" parent="World" instance=ExtResource( 6 )]
 position = Vector2( 96, 32 )
