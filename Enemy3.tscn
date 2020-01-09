@@ -20,27 +20,238 @@ texture = ExtResource( 2 )
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
 
+[node name="FollowPlayer" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Turret" type="Node2D" parent="."]
+
+[node name="Bundle" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle2" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle2"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle2"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle3" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle3"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle3"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle4" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle4"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle4"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle5" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle5"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle5"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle6" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle6"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle6"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle7" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle7"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle7"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle8" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle8"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle8"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle9" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle9"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle9"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle10" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle10"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle10"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle11" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle11"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle11"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle12" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle12"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle12"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle13" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle13"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle13"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="Bundle14" type="Node2D" parent="Turret"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Turret/Bundle14"]
+light_mask = 7
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="Turret/Bundle14"]
+light_mask = 7
+position = Vector2( 0.000181, 100 )
+scale = Vector2( 5, 1 )
+enabled = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 3
+
 [node name="Sprite2" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 28 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-light_mask = 7
-scale = Vector2( 2, 1 )
-enabled = true
-cast_to = Vector2( 0, 1000 )
-collision_mask = 3
-
-[node name="RayCast2D2" type="RayCast2D" parent="."]
-light_mask = 7
-position = Vector2( 0.000361999, 100 )
-scale = Vector2( 10, 1 )
-enabled = true
-cast_to = Vector2( 0, 1000 )
-collision_mask = 2
-
-[node name="RayCast2D3" type="RayCast2D" parent="."]
-enabled = true
-cast_to = Vector2( 0, 1000 )
-collision_mask = 3
