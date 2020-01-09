@@ -11,4 +11,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func find_path_to_player(from_pos, to_pos):
-	return get_node('Navigation2D').get_simple_path(from_pos,to_pos)
+	return get_node('Navigation2D').get_simple_path(from_pos,to_pos, false)
