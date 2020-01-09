@@ -18,14 +18,14 @@ var path = PoolVector2Array() setget set_path
 func _ready():
 	var i = 0
 	for bundle in $Turret.get_children():
-		bundle.get_node("RayCast2D").rotation_degrees = i*360/14
+		bundle.get_node("RayCast2D").rotation_degrees = i*360/20
 		i += 1
 	
 	set_process(false)
 
 func get_input():
 	if get_parent().has_node("Player"):
-		$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
+		
 		$Sprite.rotation = velocity.normalized().angle() - PI/2
 		$FollowPlayer.rotation = $Sprite2.rotation
 		
@@ -61,6 +61,7 @@ func aim():
 
 func shoot():
 	if ($FollowPlayer.get_collider() == Player):
+		$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
 		#Add some variance	
 		var b = Bullet.instance()
 		b.start($Sprite2.global_position + Vector2(40, 0).rotated($Sprite2.rotation + PI/2), $Sprite2.rotation + PI/2 + rand_range(-0.1, 0.1))
@@ -68,11 +69,13 @@ func shoot():
 		return
 	for bundle in $Turret.get_children():
 		if (bundle.get_node("RayCast2D2").get_collider() == Player):
+			$Sprite2.rotation = bundle.get_node("RayCast2D").rotation
 			#Add some variance	
 			var b = Bullet.instance()
 			b.start($Sprite2.global_position + Vector2(40, 0).rotated(bundle.get_node("RayCast2D").rotation + PI/2), bundle.get_node("RayCast2D").rotation + PI/2 + rand_range(-0.1, 0.1))
 			get_parent().add_child(b)
 			return
+	$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
 
 	
 func hit():

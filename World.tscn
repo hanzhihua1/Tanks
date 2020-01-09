@@ -37,4 +37,10 @@ position = Vector2( 608, 320.08 )
 
 [node name="Enemy2" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
 position = Vector2( 958.617, 460.802 )
+
+[node name="Enemy3" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+position = Vector2( 864, 160 )
+
+[node name="Enemy4" parent="World1/Navigation2D/Tileset" instance=ExtResource( 7 )]
+position = Vector2( 992, 96 )
 [connection signal="dead" from="World1/Navigation2D/Tileset/Player" to="." method="_on_Player_dead"]
