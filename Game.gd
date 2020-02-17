@@ -27,3 +27,8 @@ func _on_Player_dead():
 		get_tree().reload_current_scene()
 	else:
 		print('gameover')
+
+func next_level():
+	# Remove the current level
+	
+	#get_tree().change_scene("res://Levels/World2.tscn")

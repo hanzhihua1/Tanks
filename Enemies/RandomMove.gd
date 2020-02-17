@@ -13,9 +13,11 @@ var time = OS.get_ticks_msec() + shootdelay
 var nav_time = OS.get_ticks_msec() + 500
 
 var path = PoolVector2Array() setget set_path
+signal dead
 
 func _ready():
 	set_process(false)
+	connect("dead", get_tree().get_root().get_node("World"), "count_num_enemies")
 
 func get_input():
 	if get_parent().has_node("Player"):
@@ -44,6 +46,7 @@ func shoot():
 		get_parent().add_child(b)
 	
 func hit():
+	emit_signal("dead")
 	var e = Explosion.instance()
 	e.start(position)
 	get_parent().add_child(e)

@@ -15,6 +15,8 @@ var nav_time = OS.get_ticks_msec() + 500
 
 var path = PoolVector2Array() setget set_path
 
+signal dead
+
 func _ready():
 	var i = 0
 	for bundle in $Turret.get_children():

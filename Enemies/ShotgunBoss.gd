@@ -17,6 +17,8 @@ var life = 3
 
 var path = PoolVector2Array() setget set_path
 
+signal dead
+
 func _ready():
 	var i = 0
 	for bundle in $Turret.get_children():

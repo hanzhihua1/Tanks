@@ -47,8 +47,8 @@ func get_input():
 			shoot()
 
 func _physics_process(delta):
-	#get_input()
-	joystick_get_input()
+	get_input()
+	#joystick_get_input()
 	
 
 func shoot():
