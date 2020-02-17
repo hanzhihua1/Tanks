@@ -1,12 +1,32 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://UI.gd" type="Script" id=1]
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	$Movement._directional_vector()
+	$Fire._directional_vector()
+	get_parent().get_node('World1').get_node('Player')
+"
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Movement" parent="." instance=ExtResource( 2 )]
 margin_top = 416.0

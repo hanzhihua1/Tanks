@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Analog/Analog.gd" type="Script" id=1]
+[ext_resource path="res://Analog/Base.png" type="Texture" id=2]
+[ext_resource path="res://Analog/Joystick.gd" type="Script" id=3]
+[ext_resource path="res://Analog/Stick.png" type="Texture" id=4]
+
+[node name="Analog" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Joystick_Left" type="TextureRect" parent="."]
+margin_right = 140.0
+margin_bottom = 140.0
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+radius = 40.0
+use_screen_rectangle = true
+screen_rectangle = Rect2( 0, 0, 640, 768 )
+
+[node name="Joystick_Nub" type="TextureRect" parent="Joystick_Left"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick_Right" type="TextureRect" parent="."]
+margin_left = 881.857
+margin_right = 1021.86
+margin_bottom = 140.0
+texture = ExtResource( 2 )
+expand = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+radius = 40.0
+use_screen_rectangle = true
+screen_rectangle = Rect2( 640, 0, 640, 768 )
+
+[node name="Joystick_Nub" type="TextureRect" parent="Joystick_Right"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 120.0
+texture = ExtResource( 4 )

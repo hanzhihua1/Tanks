@@ -10,16 +10,16 @@ var shotready = true
 
 signal dead
 
-onready var joystick_move := $UI/Move
-onready var joystick_look := $UI/Shoot
+onready var joystick_move := $Analog/Joystick_Left
+onready var joystick_look := $Analog/Joystick_Right
 
 func joystick_get_input():
-	if joystick_move and joystick_move.is_working:
-		$Sprite.rotation = joystick_move.output.normalized().angle() - PI/2
-		velocity = move_and_slide(joystick_move.output * speed)
+	if joystick_move.joystick_active:
+		$Sprite.rotation = joystick_move.joystick_vector.angle() - PI/2
+		velocity = move_and_slide(-joystick_move.joystick_vector * speed)
 	
-	if joystick_look and joystick_look.is_working:
-		$Sprite2.rotation = joystick_look.output.angle() - PI/2
+	if joystick_look.joystick_active:
+		$Sprite2.rotation = (-joystick_look.joystick_vector).angle() - PI/2
 		var all_bullets = get_tree().get_nodes_in_group("bullets")
 		if len(all_bullets) < MAX_BULLETS and shotready:
 			shoot()
@@ -30,13 +30,13 @@ func get_input():
 	$Sprite2.rotation = get_global_mouse_position().angle_to_point(position) - PI/2
 	velocity = Vector2()
 	if Input.is_action_pressed('right'):
-	    velocity.x += 1
+		velocity.x += 1
 	if Input.is_action_pressed('left'):
-	    velocity.x -= 1
+		velocity.x -= 1
 	if Input.is_action_pressed('down'):
-	    velocity.y += 1
+		velocity.y += 1
 	if Input.is_action_pressed('up'):
-	    velocity.y -= 1
+		velocity.y -= 1
 	velocity = velocity.normalized() * speed
 	$Sprite.rotation = velocity.normalized().angle() - PI/2
 	if Input.is_action_just_pressed("click"):
@@ -46,9 +46,9 @@ func get_input():
 			shoot()
 
 func _physics_process(delta):
-    #get_input()
+	#get_input()
 	joystick_get_input()
-    #velocity = move_and_slide(velocity)
+	#velocity = move_and_slide(velocity)
 
 func shoot():
 	var b = Bullet.instance()
