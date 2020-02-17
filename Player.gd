@@ -38,6 +38,7 @@ func get_input():
 	if Input.is_action_pressed('up'):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
+	velocity = move_and_slide(velocity)
 	$Sprite.rotation = velocity.normalized().angle() - PI/2
 	if Input.is_action_just_pressed("click"):
 		var all_bullets = get_tree().get_nodes_in_group("bullets")
@@ -48,7 +49,7 @@ func get_input():
 func _physics_process(delta):
 	#get_input()
 	joystick_get_input()
-	#velocity = move_and_slide(velocity)
+	
 
 func shoot():
 	var b = Bullet.instance()
