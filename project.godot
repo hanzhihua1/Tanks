@@ -9,25 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Control",
-"class": "Joystick",
-"language": "GDScript",
-"path": "res://Joystick/Joystick.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Test/Player.gd"
 } ]
 _global_script_class_icons={
-"Joystick": "",
 "Player": ""
 }
 
 [application]
 
 config/name="Tanks"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [display]
