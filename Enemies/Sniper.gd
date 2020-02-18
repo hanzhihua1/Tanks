@@ -13,7 +13,7 @@ var shootdelay = 2000
 var bulletready = true
 var time = OS.get_ticks_msec() + shootdelay
 
-var num_bundles = 80
+var num_bundles = 30
 
 signal dead
 
