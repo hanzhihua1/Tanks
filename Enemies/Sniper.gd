@@ -13,7 +13,7 @@ var shootdelay = 1500
 var bulletready = true
 var time = OS.get_ticks_msec() + shootdelay
 
-var num_bundles = 20
+var num_bundles = 15
 
 signal dead
 
@@ -55,12 +55,15 @@ func aim():
 	for bundle in $Turret.get_children():
 		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles + $FollowPlayer.rotation_degrees - 90
 		i += 1
+		
+	var reflect_dir
+	var angle 
 	
 	# Calculate reflection raycasts
 	for bundle in $Turret.get_children():
 		
-		var reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
-		var angle = reflect_dir.angle()
+		reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal().normalized())
+		angle = reflect_dir.angle()
 		
 		bundle.get_node("RayCast2D2").global_position = bundle.get_node("RayCast2D").get_collision_point() - 10*reflect_dir.normalized()
 		
@@ -68,8 +71,8 @@ func aim():
 	
 	for bundle in $Turret.get_children():
 		
-		var reflect_dir = (bundle.get_node("RayCast2D2").global_position - bundle.get_node("RayCast2D3").global_position).bounce(bundle.get_node("RayCast2D2").get_collision_normal())
-		var angle = reflect_dir.angle()
+		reflect_dir = (bundle.get_node("RayCast2D2").global_position - bundle.get_node("RayCast2D3").global_position).bounce(bundle.get_node("RayCast2D2").get_collision_normal().normalized())
+		angle = reflect_dir.angle()
 		
 		bundle.get_node("RayCast2D3").global_position = bundle.get_node("RayCast2D2").get_collision_point() - 10*reflect_dir.normalized()
 		

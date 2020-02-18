@@ -7,7 +7,8 @@ onready var Player = get_parent().get_node("Player")
 var velocity = Vector2()
 var Bullet = preload("res://Enemies/EnemyBullet.tscn")
 var Explosion = preload("res://Explode.tscn")
-
+var Bundle = preload("res://Enemies/Bundle_2raycasts.tscn")
+var num_bundles = 10
 var shootdelay = 500
 var bulletready = true
 var time = OS.get_ticks_msec() + shootdelay
@@ -16,9 +17,12 @@ var nav_time = OS.get_ticks_msec() + 500
 signal dead
 
 func _ready():
+	for j in range(num_bundles):
+		$Turret.add_child(Bundle.instance())
+		
 	var i = 0
 	for bundle in $Turret.get_children():
-		bundle.get_node("RayCast2D").rotation_degrees = i*360/20
+		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles
 		i += 1
 	
 	set_process(false)
@@ -50,10 +54,18 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	
 func aim():
+	var i = 0
+	var reflect_dir
+	var angle
+	
+	for bundle in $Turret.get_children():
+		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles + $FollowPlayer.rotation_degrees - 90
+		i += 1
+		
 	for bundle in $Turret.get_children():
 		
-		var reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
-		var angle = reflect_dir.angle()
+		reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
+		angle = reflect_dir.angle()
 		
 		bundle.get_node("RayCast2D2").global_position = bundle.get_node("RayCast2D").get_collision_point() - 10*reflect_dir.normalized()
 		

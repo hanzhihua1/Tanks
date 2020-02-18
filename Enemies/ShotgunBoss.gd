@@ -17,7 +17,7 @@ var nav_time = OS.get_ticks_msec() + 500
 var state = 'pathing'
 
 var life = 3
-var num_bundles = 20
+var num_bundles = 15
 
 var path = PoolVector2Array() setget set_path
 
@@ -29,7 +29,7 @@ func _ready():
 		
 	var i = 0
 	for bundle in $Turret.get_children():
-		bundle.get_node("RayCast2D").rotation_degrees = i*360/20
+		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles
 		i += 1
 	
 	set_process(false)
@@ -70,14 +70,17 @@ func _physics_process(delta):
 	
 func aim():
 	var i = 0
+	var reflect_dir
+	var angle
+	
 	for bundle in $Turret.get_children():
 		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles + $FollowPlayer.rotation_degrees - 90
 		i += 1
 	
 	for bundle in $Turret.get_children():
 		
-		var reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
-		var angle = reflect_dir.angle()
+		reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
+		angle = reflect_dir.angle()
 		
 		bundle.get_node("RayCast2D2").global_position = bundle.get_node("RayCast2D").get_collision_point() - 10*reflect_dir.normalized()
 		
