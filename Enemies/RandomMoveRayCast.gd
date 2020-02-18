@@ -57,7 +57,6 @@ func aim():
 		
 		bundle.get_node("RayCast2D2").global_position = bundle.get_node("RayCast2D").get_collision_point() - 10*reflect_dir.normalized()
 		
-
 		bundle.get_node("RayCast2D2").rotation = angle + PI/2
 
 func shoot():
