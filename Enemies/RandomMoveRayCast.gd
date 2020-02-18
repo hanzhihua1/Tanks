@@ -82,6 +82,7 @@ func shoot():
 
 	
 func hit():
+	emit_signal("dead")
 	var e = Explosion.instance()
 	e.start(position)
 	get_parent().add_child(e)
