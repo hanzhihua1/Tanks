@@ -23,12 +23,6 @@ position = Vector2( 160, 319.92 )
 [node name="Sniper" parent="Navigation2D/Tileset" instance=ExtResource( 4 )]
 position = Vector2( 890.838, 355.732 )
 
-[node name="Sniper2" parent="Navigation2D/Tileset" instance=ExtResource( 4 )]
-position = Vector2( 1129, 132.646 )
-
-[node name="Sniper3" parent="Navigation2D/Tileset" instance=ExtResource( 4 )]
-position = Vector2( 1018.96, 639.112 )
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="UI" parent="." instance=ExtResource( 7 )]
