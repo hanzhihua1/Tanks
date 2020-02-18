@@ -5,7 +5,7 @@ export (int) var speed = 100
 onready var Player = get_parent().get_node("Player")
 
 var velocity = Vector2()
-var Bullet = preload("res://EnemyBullet.tscn")
+var Bullet = preload("res://Enemies/EnemyBullet.tscn")
 var Explosion = preload("res://Explode.tscn")
 
 var shootdelay = 800

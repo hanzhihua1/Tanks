@@ -5,15 +5,13 @@ export (int) var speed = 100
 onready var Player = get_parent().get_node("Player")
 
 var velocity = Vector2()
-var Bullet = preload("res://EnemyBullet.tscn")
+var Bullet = preload("res://Enemies/EnemyBullet.tscn")
 var Explosion = preload("res://Explode.tscn")
 
 var shootdelay = 500
 var bulletready = true
 var time = OS.get_ticks_msec() + shootdelay
 var nav_time = OS.get_ticks_msec() + 500
-
-var path = PoolVector2Array() setget set_path
 
 signal dead
 
@@ -88,26 +86,3 @@ func hit():
 	get_parent().add_child(e)
 	queue_free()
 	
-func set_path(new_path):
-	if new_path.size() == 0:
-		return
-	set_process(true)
-	path = new_path
-
-func _process(delta):
-	move_along_path(speed * delta)
-	
-func move_along_path(distance):
-	var start_point = position
-	for i in range(path.size()):
-		var distance_to_next = start_point.distance_to(path[0])
-		if distance <= distance_to_next and distance >= 0.0:
-			position = start_point.linear_interpolate(path[0], distance/distance_to_next)
-			break
-		elif distance < 0.0:
-			position = path[0]
-			set_process(false)
-			break
-		distance -= distance_to_next
-		start_point = path[0]
-		path.remove(0)
