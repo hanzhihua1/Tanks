@@ -7,13 +7,13 @@ onready var Player = get_parent().get_node("Player")
 var velocity = Vector2()
 var Bullet = preload("res://Enemies/SniperBullet.tscn")
 var Explosion = preload("res://Explode.tscn")
-var Bundle = preload("res://Enemies/Bundle.tscn")
+var Bundle = preload("res://Enemies/Bundle_3raycasts.tscn")
 
-var shootdelay = 2000
+var shootdelay = 1500
 var bulletready = true
 var time = OS.get_ticks_msec() + shootdelay
 
-var num_bundles = 30
+var num_bundles = 20
 
 signal dead
 
@@ -23,7 +23,7 @@ func _ready():
 	
 	var i = 0
 	for bundle in $Turret.get_children():
-		bundle.get_node("RayCast2D").rotation_degrees = i*360/num_bundles
+		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles 
 		i += 1
 	
 	set_process(false)
@@ -51,6 +51,12 @@ func _physics_process(delta):
 	#velocity = move_and_slide(velocity)
 	
 func aim():
+	var i = 0
+	for bundle in $Turret.get_children():
+		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles + $FollowPlayer.rotation_degrees - 90
+		i += 1
+	
+	# Calculate reflection raycasts
 	for bundle in $Turret.get_children():
 		
 		var reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())

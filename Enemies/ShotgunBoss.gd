@@ -1,25 +1,32 @@
 extends KinematicBody2D
 
-export (int) var speed = 100
+export (int) var speed = 75
 
 onready var Player = get_parent().get_node("Player")
 
 var velocity = Vector2()
 var Bullet = preload("res://Enemies/EnemyBullet.tscn")
 var Explosion = preload("res://Explode.tscn")
+var Bundle = preload("res://Enemies/Bundle_2raycasts.tscn")
 
 var shootdelay = 500
 var bulletready = true
+var pathready = false
 var time = OS.get_ticks_msec() + shootdelay
 var nav_time = OS.get_ticks_msec() + 500
+var state = 'pathing'
 
 var life = 3
+var num_bundles = 20
 
 var path = PoolVector2Array() setget set_path
 
 signal dead
 
 func _ready():
+	for j in range(num_bundles):
+		$Turret.add_child(Bundle.instance())
+		
 	var i = 0
 	for bundle in $Turret.get_children():
 		bundle.get_node("RayCast2D").rotation_degrees = i*360/20
@@ -31,8 +38,7 @@ func _ready():
 func get_input():
 	if get_parent().has_node("Player"):
 		
-		$Sprite.rotation = velocity.normalized().angle() - PI/2
-		$FollowPlayer.rotation = $Sprite2.rotation
+		$FollowPlayer.rotation = Player.position.angle_to_point(position) - PI/2
 		
 		if (bulletready == false) and time < OS.get_ticks_msec():
 			bulletready = true
@@ -45,16 +51,29 @@ func get_input():
 			
 		if nav_time < OS.get_ticks_msec():
 			nav_time = OS.get_ticks_msec() + 500
-			#set_path(get_parent().get_parent().get_parent().find_path_to_player(position, Player.position))
-			velocity = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()*speed
+			if ($FollowPlayer.get_collider() == Player):
+				velocity = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()*speed
+				$Sprite.rotation = velocity.normalized().angle() - PI/2
+				state = 'random'
+			else:
+				set_path(get_parent().get_parent().get_parent().find_path_to_player(position, Player.position))
+				$Sprite.rotation = (path[1] - path[0]).angle() - PI/2
+				state = 'pathing'
 	else:
+		state = 'random'
 		velocity = Vector2(0, 0)
 
 func _physics_process(delta):
 	get_input()
-	velocity = move_and_slide(velocity)
+	if state == 'random':
+		velocity = move_and_slide(velocity)
 	
 func aim():
+	var i = 0
+	for bundle in $Turret.get_children():
+		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles + $FollowPlayer.rotation_degrees - 90
+		i += 1
+	
 	for bundle in $Turret.get_children():
 		
 		var reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
@@ -104,7 +123,8 @@ func set_path(new_path):
 	path = new_path
 
 func _process(delta):
-	move_along_path(speed * delta)
+	if state == 'pathing':
+		move_along_path(speed * delta)
 	
 func move_along_path(distance):
 	var start_point = position

@@ -24,10 +24,10 @@ position = Vector2( 117.806, 492.212 )
 position = Vector2( 832.821, 424.297 )
 
 [node name="Sniper2" parent="Navigation2D/Tileset" instance=ExtResource( 4 )]
-position = Vector2( 1149.28, 658.123 )
+position = Vector2( 1129.94, 615.929 )
 
 [node name="Sniper3" parent="Navigation2D/Tileset" instance=ExtResource( 4 )]
-position = Vector2( 1110.6, 118.39 )
+position = Vector2( 1112.36, 137.729 )
 
 [node name="Timer" type="Timer" parent="."]
 
