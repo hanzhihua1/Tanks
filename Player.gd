@@ -13,6 +13,9 @@ signal dead
 onready var joystick_move := $Analog/Joystick_Left
 onready var joystick_look := $Analog/Joystick_Right
 
+func _ready():
+	connect("dead", get_tree().get_root().get_node("World"), 'restart_scene')
+
 func joystick_get_input():
 	if joystick_move.joystick_active:
 		$Sprite.rotation = joystick_move.joystick_vector.angle() - PI/2
@@ -66,3 +69,5 @@ func hit():
 
 func _on_ShootDelay_timeout():
 	shotready = true
+
+

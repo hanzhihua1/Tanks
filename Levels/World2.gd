@@ -23,7 +23,7 @@ func count_num_enemies():
 
 func _on_Timer_timeout():
 	Game.level += 1
-	get_tree().change_scene("res://Levels/World2.tscn")
+	get_tree().change_scene("res://Levels/World3.tscn")
 
 func restart_scene():
 	if Game.lives > 0:

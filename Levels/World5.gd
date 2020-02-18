@@ -4,7 +4,7 @@ extends Node2D
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 
-export var num_enemies = 3
+export var num_enemies = 4
 
 func _ready():
 	pass
@@ -18,12 +18,13 @@ func count_num_enemies():
 	if num_enemies == 0:
 		$Timer.start()
 		$UI/Label.visible = true
+		$UI/Label.text = 'You beat the game!'
 		
 
 
 func _on_Timer_timeout():
 	Game.level += 1
-	get_tree().change_scene("res://Levels/World2.tscn")
+	
 
 func restart_scene():
 	if Game.lives > 0:

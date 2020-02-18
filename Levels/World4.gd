@@ -4,7 +4,7 @@ extends Node2D
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 
-export var num_enemies = 3
+export var num_enemies = 4
 
 func _ready():
 	pass
@@ -23,7 +23,7 @@ func count_num_enemies():
 
 func _on_Timer_timeout():
 	Game.level += 1
-	get_tree().change_scene("res://Levels/World2.tscn")
+	get_tree().change_scene("res://Levels/World5.tscn")
 
 func restart_scene():
 	if Game.lives > 0:

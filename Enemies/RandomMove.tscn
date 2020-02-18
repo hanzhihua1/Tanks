@@ -1,11 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Enemies/RandomMove.gd" type="Script" id=1]
-[ext_resource path="res://PNG/Retina/tankBody_dark_outline.png" type="Texture" id=2]
-[ext_resource path="res://PNG/Retina/tankDark_barrel2_outline.png" type="Texture" id=3]
-
-
-
+[ext_resource path="res://PNG/Retina/tankRed_barrel2_outline.png" type="Texture" id=2]
+[ext_resource path="res://PNG/Retina/tankBody_red_outline.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 42.1119, 40 )
@@ -17,7 +14,7 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -26,7 +23,7 @@ shape = SubResource( 1 )
 [node name="Sprite2" type="Sprite" parent="."]
 rotation = -1.5708
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 offset = Vector2( 0, 28 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

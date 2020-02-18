@@ -26,6 +26,7 @@ func _ready():
 		i += 1
 	
 	set_process(false)
+	connect("dead", get_tree().get_root().get_node("World"), "count_num_enemies")
 
 func get_input():
 	if get_parent().has_node("Player"):

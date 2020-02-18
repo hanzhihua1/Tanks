@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Tanks"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Levels/World1.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Game="*res://Game.gd"
 
 [display]
 

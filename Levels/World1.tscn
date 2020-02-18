@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/RandomMove.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/World1.gd" type="Script" id=3]
 [ext_resource path="res://World.tres" type="TileSet" id=4]
 [ext_resource path="res://Crate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
@@ -40,3 +41,9 @@ position = Vector2( 637.605, 413.011 )
 
 [node name="Crate4" parent="Navigation2D/Tileset" instance=ExtResource( 5 )]
 position = Vector2( 639.112, 476.32 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="UI" parent="." instance=ExtResource( 6 )]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -4,8 +4,6 @@
 [ext_resource path="res://PNG/Retina/tankBody_dark_outline.png" type="Texture" id=2]
 [ext_resource path="res://PNG/Retina/tankDark_barrel2_outline.png" type="Texture" id=3]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 42.1119, 40 )
 
