@@ -13,8 +13,12 @@ signal dead
 onready var joystick_move := $Analog/Joystick_Left
 onready var joystick_look := $Analog/Joystick_Right
 
+var mode = 'desktop'
+
 func _ready():
 	connect("dead", get_tree().get_root().get_node("World"), 'restart_scene')
+	if mode == 'desktop':
+		$Analog.queue_free()
 
 func joystick_get_input():
 	if joystick_move.joystick_active:
@@ -50,8 +54,10 @@ func get_input():
 			shoot()
 
 func _physics_process(delta):
-	get_input()
-	#joystick_get_input()
+	if mode == 'desktop':
+		get_input()
+	if mode == 'mobile':
+		joystick_get_input()
 	
 
 func shoot():
