@@ -49,4 +49,5 @@ func restart_scene():
 		yield(t, "timeout")
 		t.queue_free()
 		Game.lives = 3
+		Game.level = 1
 		get_tree().change_scene("res://Levels/World1.tscn")
