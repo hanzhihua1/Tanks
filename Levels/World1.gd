@@ -19,8 +19,6 @@ func count_num_enemies():
 		$Timer.start()
 		$UI/Label.visible = true
 		
-
-
 func _on_Timer_timeout():
 	Game.level += 1
 	get_tree().change_scene("res://Levels/World2.tscn")

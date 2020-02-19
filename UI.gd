@@ -22,3 +22,7 @@ func showlevel():
 
 func _on_ShowLevel_timeout():
 	$Level.visible = false
+
+func _on_Button_pressed():
+	get_tree().paused = not get_tree().paused
+	$Pause.visible = not $Pause.visible
