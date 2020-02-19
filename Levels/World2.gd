@@ -7,7 +7,7 @@ extends Node2D
 export var num_enemies = 3
 
 func _ready():
-	pass
+	Game.level = 2
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func find_path_to_player(from_pos, to_pos):
@@ -22,7 +22,6 @@ func count_num_enemies():
 
 
 func _on_Timer_timeout():
-	Game.level += 1
 	get_tree().change_scene("res://Levels/World3.tscn")
 
 func restart_scene():

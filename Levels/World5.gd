@@ -7,7 +7,7 @@ extends Node2D
 export var num_enemies = 4
 
 func _ready():
-	pass
+	Game.level = 5
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func find_path_to_player(from_pos, to_pos):
@@ -17,10 +17,10 @@ func count_num_enemies():
 	num_enemies -= 1
 	if num_enemies == 0:
 		$Timer.start()
+		Game.lives += 1
 		$UI/Label.visible = true
 		
 func _on_Timer_timeout():
-	Game.level += 1
 	get_tree().change_scene("res://Levels/World6.tscn")
 
 func restart_scene():

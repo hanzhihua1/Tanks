@@ -5,7 +5,7 @@ export (int) var speed = 75
 onready var Player = get_parent().get_node("Player")
 
 var velocity = Vector2()
-var Bullet = preload("res://Enemies/TrainingBullet.tscn")
+var Bullet = preload("res://Enemies/EnemyBullet.tscn")
 var Explosion = preload("res://Explode.tscn")
 var Bundle = preload("res://Enemies/Bundle_2raycasts.tscn")
 
@@ -23,18 +23,7 @@ var path = PoolVector2Array() setget set_path
 
 signal dead
 
-func _ready():
-	"""
-	for j in range(num_bundles):
-		$Turret.add_child(Bundle.instance())
-		
-	
-	var i = 0
-	for bundle in $Turret.get_children():
-		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles
-		i += 1
-	"""
-	
+func _ready():	
 	set_process(false)
 	connect("dead", get_tree().get_root().get_node("World"), "count_num_enemies")
 
@@ -69,31 +58,10 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	if state == 'random':
-		#velocity = move_and_slide(velocity)
-		pass
+		velocity = move_and_slide(velocity)
 	
 func aim():
 	$Lead.rotation = lead_shot().angle_to_point(position) - PI/2
-	
-	var i = 0
-	var reflect_dir
-	var angle
-	
-	"""
-	for bundle in $Turret.get_children():
-		bundle.get_node("RayCast2D").rotation_degrees = i*180/num_bundles + $FollowPlayer.rotation_degrees - 90
-		i += 1
-	
-	for bundle in $Turret.get_children():
-		
-		reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
-		angle = reflect_dir.angle()
-		
-		bundle.get_node("RayCast2D2").global_position = bundle.get_node("RayCast2D").get_collision_point() - 10*reflect_dir.normalized()
-		
-
-		bundle.get_node("RayCast2D2").rotation = angle + PI/2
-	"""
 
 func shoot():
 	if ($FollowPlayer.get_collider() == Player):
@@ -106,16 +74,6 @@ func shoot():
 		b.start($Sprite2.global_position + Vector2(40, 0).rotated($Lead.rotation + PI/2), $Lead.rotation + PI/2)
 		get_parent().add_child(b)
 		return
-	"""
-	for bundle in $Turret.get_children():
-		if (bundle.get_node("RayCast2D2").get_collider() == Player):
-			$Sprite2.rotation = bundle.get_node("RayCast2D").rotation
-			#Add some variance	
-			var b = Bullet.instance()
-			b.start($Sprite2.global_position + Vector2(40, 0).rotated(bundle.get_node("RayCast2D").rotation + PI/2), bundle.get_node("RayCast2D").rotation + PI/2 + rand_range(-0.15, 0.15))
-			get_parent().add_child(b)
-			return
-	"""
 	$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
 
 	

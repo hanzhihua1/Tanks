@@ -5,7 +5,7 @@
 [ext_resource path="res://Enemies/Lead.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 52.5671, 60.6425 )
+extents = Vector2( 42.1119, 40 )
 
 [node name="Lead" type="KinematicBody2D"]
 collision_layer = 4
@@ -19,6 +19,9 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="FollowPlayer" type="RayCast2D" parent="."]
 enabled = true

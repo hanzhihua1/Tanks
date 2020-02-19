@@ -64,7 +64,7 @@ func aim():
 		
 	for bundle in $Turret.get_children():
 		
-		reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal())
+		reflect_dir = (position - bundle.get_node("RayCast2D2").global_position).bounce(bundle.get_node("RayCast2D").get_collision_normal().normalized())
 		angle = reflect_dir.angle()
 		
 		bundle.get_node("RayCast2D2").global_position = bundle.get_node("RayCast2D").get_collision_point() - 10*reflect_dir.normalized()

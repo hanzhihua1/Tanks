@@ -4,10 +4,10 @@ extends Node2D
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 
-export var num_enemies = 4
+export var num_enemies = 6
 
 func _ready():
-	Game.level = 4
+	Game.level = 8
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func find_path_to_player(from_pos, to_pos):
@@ -19,10 +19,8 @@ func count_num_enemies():
 		$Timer.start()
 		$UI/Label.visible = true
 		
-
-
 func _on_Timer_timeout():
-	get_tree().change_scene("res://Levels/World5.tscn")
+	get_tree().change_scene("res://Levels/World9.tscn")
 
 func restart_scene():
 	if Game.lives > 0:
