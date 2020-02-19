@@ -6,7 +6,7 @@
 light_mask = 7
 scale = Vector2( 5, 1 )
 enabled = true
-cast_to = Vector2( 0, 1000 )
+cast_to = Vector2( 0, 1500 )
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
@@ -14,5 +14,5 @@ light_mask = 7
 position = Vector2( 0.000181, 100 )
 scale = Vector2( 5, 1 )
 enabled = true
-cast_to = Vector2( 0, 1000 )
+cast_to = Vector2( 0, 1500 )
 collision_mask = 3

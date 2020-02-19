@@ -18,10 +18,10 @@ func count_num_enemies():
 	if num_enemies == 0:
 		$Timer.start()
 		$UI/Label.visible = true
+		$UI/Label.text = "You win the game!"
 		
 func _on_Timer_timeout():
 	Game.level += 1
-	get_tree().change_scene("res://Levels/World7.tscn")
 
 func restart_scene():
 	if Game.lives > 0:

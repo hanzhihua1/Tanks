@@ -32,7 +32,7 @@ func get_input():
 	if get_parent().has_node("Player"):
 		
 		$Sprite.rotation = velocity.normalized().angle() - PI/2
-		$FollowPlayer.rotation = $Sprite2.rotation
+		$FollowPlayer.rotation = (position - Player.position).angle() + PI/2
 		
 		if (bulletready == false) and time < OS.get_ticks_msec():
 			bulletready = true
