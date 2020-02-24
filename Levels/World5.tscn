@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/World5.gd" type="Script" id=2]
 [ext_resource path="res://World.tres" type="TileSet" id=3]
 [ext_resource path="res://Enemies/ShotgunBoss.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemies/RandomMoveRayCast.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Crate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Enemies/Sniper.tscn" type="PackedScene" id=8]
 
@@ -34,30 +33,6 @@ position = Vector2( 126.839, 389.258 )
 
 [node name="Sniper" parent="Navigation2D/Tileset" instance=ExtResource( 8 )]
 position = Vector2( 842.604, 375.328 )
-
-[node name="Crate" parent="." instance=ExtResource( 6 )]
-position = Vector2( 676.646, 352.896 )
-
-[node name="Crate3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 609.631, 352.816 )
-
-[node name="Crate5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 610.323, 415.432 )
-
-[node name="Crate6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 676.646, 419.954 )
-
-[node name="Crate7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 744.476, 421.462 )
-
-[node name="Crate8" parent="." instance=ExtResource( 6 )]
-position = Vector2( 745.984, 353.631 )
-
-[node name="Crate2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 544, 352 )
-
-[node name="Crate4" parent="." instance=ExtResource( 6 )]
-position = Vector2( 543.308, 416.83 )
 
 [node name="Timer" type="Timer" parent="."]
 
