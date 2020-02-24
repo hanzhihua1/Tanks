@@ -8,6 +8,7 @@ var num_bounce = 2
 # Called when the node enters the scene tree for the first time.
 
 func start(pos, dir):
+	$Shoot.play()
 	rotation = dir
 	position = pos
 	velocity = Vector2(speed, 0).rotated(rotation)

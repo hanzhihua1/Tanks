@@ -5,7 +5,7 @@ export (int) var speed = 75
 onready var Player = get_parent().get_node("Player")
 
 var velocity = Vector2()
-var Bullet = preload("res://Enemies/EnemyBullet.tscn")
+var Bullet = preload("res://Enemies/EnemyBulletNoSound.tscn")
 var Explosion = preload("res://Explode.tscn")
 var Bundle = preload("res://Enemies/Bundle_2raycasts.tscn")
 
@@ -90,7 +90,7 @@ func aim():
 func shoot():
 	if ($FollowPlayer.get_collider() == Player):
 		$Sprite2.rotation = Player.position.angle_to_point(position) - PI/2
-		
+		$Shoot.play()
 		for i in range(5):
 			#Add some variance	
 			var b = Bullet.instance()
@@ -100,6 +100,7 @@ func shoot():
 	for bundle in $Turret.get_children():
 		if (bundle.get_node("RayCast2D2").get_collider() == Player):
 			$Sprite2.rotation = bundle.get_node("RayCast2D").rotation
+			$Shoot.play()
 			for i in range(5):
 				#Add some variance	
 				var b = Bullet.instance()

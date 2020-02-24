@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://PNG/Retina/tankBody_blue_outline.png" type="Texture" id=2]
 [ext_resource path="res://PNG/Retina/tankBlue_barrel2_outline.png" type="Texture" id=3]
 [ext_resource path="res://Analog/Analog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/Shoot.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 42.2196, 40 )
@@ -31,4 +32,7 @@ offset = Vector2( 0, 28 )
 wait_time = 0.3
 
 [node name="Analog" parent="." instance=ExtResource( 4 )]
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 [connection signal="timeout" from="ShootDelay" to="." method="_on_ShootDelay_timeout"]

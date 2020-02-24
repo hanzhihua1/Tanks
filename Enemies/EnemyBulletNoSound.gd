@@ -8,11 +8,10 @@ var num_bounce = 1
 # Called when the node enters the scene tree for the first time.
 
 func start(pos, dir):
-	$Shoot.play()
 	rotation = dir
 	position = pos
 	velocity = Vector2(speed, 0).rotated(rotation)
-
+	
 
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
@@ -34,3 +33,5 @@ func hit():
 	get_parent().add_child(e)
 	queue_free()
 
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()

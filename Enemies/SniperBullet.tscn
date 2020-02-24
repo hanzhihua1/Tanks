@@ -19,3 +19,5 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]

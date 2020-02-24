@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemies/ShotgunBoss.gd" type="Script" id=1]
 [ext_resource path="res://PNG/Retina/tankBody_darkLarge_outline.png" type="Texture" id=2]
 [ext_resource path="res://PNG/Retina/tankDark_barrel1_outline.png" type="Texture" id=3]
+[ext_resource path="res://sounds/Shoot.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.5671, 60.6425 )
 
-[node name="Enemy4" type="KinematicBody2D"]
+[node name="Boss" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 1 )
@@ -31,3 +32,6 @@ texture = ExtResource( 3 )
 offset = Vector2( 0, 28 )
 
 [node name="Turret" type="Node2D" parent="."]
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
