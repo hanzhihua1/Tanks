@@ -4,7 +4,7 @@ extends Node2D
 # var b = "text"
 # Called when the node enters the scene tree for the first time.
 
-export var num_enemies = 3
+export var num_enemies = 4
 
 func _ready():
 	Game.level = 6

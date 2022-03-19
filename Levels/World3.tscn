@@ -73,4 +73,5 @@ position = Vector2( 991.671, 287.188 )
 
 [node name="Crate12" parent="." instance=ExtResource( 7 )]
 position = Vector2( 991.671, 347.482 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

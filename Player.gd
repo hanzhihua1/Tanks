@@ -52,6 +52,10 @@ func get_input():
 		print(all_bullets)
 		if len(all_bullets) < MAX_BULLETS:
 			shoot()
+	if Input.is_action_pressed('restart'):
+		Game.lives = 3
+		Game.level = 1
+		get_tree().change_scene("res://Levels/World1.tscn")
 
 func _physics_process(delta):
 	if mode == 'desktop':

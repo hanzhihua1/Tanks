@@ -37,4 +37,5 @@ position = Vector2( 842.604, 375.328 )
 [node name="Timer" type="Timer" parent="."]
 
 [node name="UI" parent="." instance=ExtResource( 7 )]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
