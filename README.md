@@ -1,38 +1,18 @@
-# Godot-Virtual-Joystick
-A simple virtual joystick for touchscreens, for both 2D and 3D games, with useful options.
+# Tanks
 
-<p align="center"> 
-	<img src="https://raw.githubusercontent.com/MarcoFazioRandom/Godot-Virtual-Joystick/master/preview_icon.png" width="300">
-	<img src="https://raw.githubusercontent.com/MarcoFazioRandom/Godot-Virtual-Joystick/master/preview_1.png" width="400">
-</p>
+Tank game made in Godot Engine. Can you clear all 10 levels?
 
-Made with Godot Engine: https://godotengine.org
+WASD to move, left click to shoot. R to restart from Level 1.
 
-### OPTIONS:  
+Play: https://pixellation.itch.io/tanks
 
-<img src="https://raw.githubusercontent.com/MarcoFazioRandom/Godot-Virtual-Joystick/master/preview_2.png" width="300">
+![](./screenshot.jpg)
 
-- Joystick mode: 
-	- Fixed: The joystick doesn't move. 
-	- Dynamic: Every time the joystick area is pressed, the joystick position is set on the touched position. 
-	- Following: If the finger moves outside the joystick background, the joystick follows it.  
+AIs of all the tanks:
 
-- Vector mode: 
-	- Real: return a vector with a lenght beetween 0 and 1; useful for implementing different velocity or acceleration.  
-	- Normalized: return a normalized vector. 
+- Red: Shoots straight at you, moves randomly.
+- Black: Emits raycasts in 12 equally spaced directions, as well as the 1st reflection raycasts of those raycasts. If any of those contact the player, fire in that raycast.
+- Green: Emits raycasts in 24 equally spaced directions, as well as up to 2 reflection raycasts. If any of those contact the player, fire in that raycast.
+- Shotgun: Same as black, but with pathfinding.
+- Beige: Consider a raycast directed at the player and the direction the player is moving. Solve the kinematics equations to obtain a prediction for where the player will be, leading the shot. Fire in that angle. Uses pathfinding, has 3 lives.
 
-- Directions: The number of directions, e.g. a D-pad is joystick with 4 directions, keep 0 for a free joystick.  
-- Simmetry Angle: the angle of simmetry of the directions.  
-
-- Dead zone: If the handle is inside this range, in proportion to the background size, the output is zero.
-
-- Clamp zone: The max distance the handle can reach, in proportion to the background size.
-
-### HELP:  
-- The Control parent of the joystick is the area in which the joystick can move in Dynamic or Following mode.  
-- For moving the joystick inside is area, select it, right click and turn on "Editable Children" and simply move the 'Background' node.  - With "Editable Children" turned on you can also edit the joystick textures and colors.  
-- An example scene is provided in the "Test" folder.  
-- To be able to use the joystick with the mouse, you have to go to Project settings -> Input Devices -> Pointing, and turn on the option "emulate touch from mouse".  
-
-### HOW TO USE:  
-In your Player scene, add a CanvasLayer node as a child of it and name it "UI", it'll contain all the UI elements of the player, then add the Joystick scene as a child of the UI node and move it where you prefer (remember to turn on "Editable Children"). 
